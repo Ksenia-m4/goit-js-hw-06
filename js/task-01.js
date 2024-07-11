@@ -21,10 +21,14 @@
 const list = document.querySelector("#categories");
 console.log("Number of categories:", list.children.length);
 
-const categories = document.querySelectorAll(".item");
-
-categories.forEach((item) => {
+[...list.children].forEach((item) => {
   console.log("Category:", item.firstElementChild.textContent);
-  const elements = item.lastElementChild;
-  console.log("Elements:", elements.children.length);
+  console.log("Elements:", item.lastElementChild.children.length);
 });
+
+// const categories = document.querySelectorAll(".item");
+// categories.forEach((item) => {
+//   console.log("Category:", item.firstElementChild.textContent);
+//   const elements = item.lastElementChild;
+//   console.log("Elements:", elements.children.length);
+// });
