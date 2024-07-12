@@ -11,3 +11,38 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+const btnCreate = document.querySelector("button[data-create]");
+const btnDestroy = document.querySelector("button[data-destroy]");
+const inputEl = document.querySelector("input");
+const boxesContainer = document.querySelector("#boxes");
+
+btnCreate.addEventListener("click", onCreateBtnClick);
+btnDestroy.addEventListener("click", destroyBoxes);
+
+//  Создай функцию createBoxes(amount), которая принимает один параметр - число. Функция создает столько <div>, сколько указано в amount и добавляет их в div#boxes.
+function createBoxes(amount) {
+  for (let i = 0; i < amount; i += 1) {
+    const box = document.createElement("div");
+    const size = 30 + i * 10;
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    boxesContainer.appendChild(box);
+  }
+}
+
+// Создай функцию destroyBoxes(), которая очищает содержимое div#boxes, тем самым удаляя все созданные элементы.
+function destroyBoxes() {
+  boxesContainer.innerHTML = "";
+}
+
+function onCreateBtnClick() {
+  const amount = inputEl.value;
+  if (amount > 0 && amount <= 100) {
+    destroyBoxes();
+    createBoxes(amount);
+  } else {
+    alert("Введите число от 1 до 100");
+  }
+}
