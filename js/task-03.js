@@ -20,9 +20,13 @@ const images = [
 ];
 
 const list = document.querySelector(".gallery");
-console.log(list);
 
-images.map(({ url, alt }) => {
-  const markup = `<li class="item"><img src="${url}" alt="${alt}" class="img" width="300px"></li>`;
-  list.insertAdjacentHTML("beforeend", markup);
-});
+const elements = images
+  .map(
+    ({ url, alt }) =>
+      `<li class="item"><img src="${url}" alt="${alt}" class="img" width="300px"></li>`
+  )
+  .join("");
+
+list.insertAdjacentHTML("beforeend", elements);
+console.log(list);

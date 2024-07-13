@@ -3,9 +3,9 @@
 const inputEl = document.querySelector("#name-input");
 const nameEl = document.querySelector("#name-output");
 
-inputEl.addEventListener("input", OnClick);
+inputEl.addEventListener("input", onClick);
 
-function OnClick(evt) {
+function onClick(evt) {
   nameEl.textContent = evt.currentTarget.value;
   if (nameEl.textContent === "") {
     nameEl.textContent = "Anonymous";

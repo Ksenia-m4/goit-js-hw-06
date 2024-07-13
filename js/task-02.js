@@ -15,11 +15,23 @@ const ingredients = [
 
 const list = document.querySelector("#ingredients");
 
-ingredients.map((el) => {
+// oldschool =>
+// const elements = [];
+// for (let i = 0; i < ingredients.length; i += 1) {
+//   const item = document.createElement("li");
+//   item.textContent = ingredients[i];
+//   item.classList.add("item");
+//   elements.push(item);
+// }
+
+// list.append(...elements);
+
+const elements = ingredients.map((ingredient) => {
   const item = document.createElement("li");
-  item.textContent = el;
+  item.textContent = ingredient;
   item.classList.add("item");
-  list.append(item);
+  return item;
 });
 
-// console.log([...list.children]);
+// console.log(elements);
+list.append(...elements);
